@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+<div class="hero-copy">
+<p class="kicker">Smart Energy Profile 2.0</p>
+<h1>IEEE 2030.5<br><em>for Rust.</em>
+</h1>
+<p class="lede">Connect distributed energy resources to the grid with typed XML, certificate-bound enrollment and scheduled controls.</p>
+<div class="actions"><a class="button" href="{{ get_url(path='@/guides/getting-started.md') }}">Get started <b>→</b></a><a href="https://docs.rs/ieee2030-5">API reference</a>
+</div>
+</div>
+<figure><img src="{{ get_url(path='solar-array.jpg') }}" alt="Rows of photovoltaic modules at a solar farm" width="1500" height="998" fetchpriority="high">
+<figcaption><a href="https://unsplash.com/photos/513dBrMJ_5w">American Public Power Association / Unsplash</a>
+</figcaption>
+</figure>
+</div>
+<section class="wrap routes">
+<p class="kicker">Implementation guides</p>
+<h2>From XML to a control feed</h2>
+<div class="cards">
+{% for slug in ["schema","security","client-and-notifications"] %}{% set guide = get_page(path="guides/" ~ slug ~ ".md") %}<a class="card" href="{{ guide.permalink }}">
+<h3>{{ guide.title }} <span>↗</span>
+</h3>
+<p>{{ guide.description }}</p></a>{% endfor %}
+</div>
+</section>
+<section class="band">
+<div class="wrap">
+<h2>Protocol coverage</h2>
+<p>The library supports IEEE 2030.5-2018 XML and CSIP-AUS v1.2 site limits. The test suite exercises three SunSpec CSIP procedures. Server conformance also requires EXI.</p><a href="{{ get_url(path='@/guides/conformance.md') }}">Read the conformance report →</a>
+</div>
+</section>
+{% endblock %}

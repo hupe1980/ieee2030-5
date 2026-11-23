@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% if page %}{% set title = page.title %}{% set description = page.description %}{% elif section %}{% set title = section.title %}{% set description = section.description | default(value=config.description, boolean=true) %}{% else %}{% set title = "Page unavailable" %}{% set description = config.description %}{% endif %}
+<title>{{ title }} · ieee2030-5</title>
+<meta name="description" content="{{ description }}">
+{% if current_url %}<link rel="canonical" href="{{ current_url }}">
+<meta property="og:url" content="{{ current_url }}">{% endif %}
+<meta property="og:title" content="{{ title }} · ieee2030-5">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="{% if page %}article{% else %}website{% endif %}">
+<meta property="og:image" content="{{ get_url(path='solar-array.jpg') }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="bar"><a class="brand" href="{{ config.base_url }}/"><i aria-hidden="true"></i>ieee2030-5</a>
+<nav aria-label="Primary"><a href="{{ get_url(path='@/guides/_index.md') }}">Documentation</a><a href="{{ config.extra.repository }}">GitHub ↗</a>
+</nav>
+</div>
+</header>
+<main id="main">{% block content %}{% endblock %}</main>
+<footer>
+<div class="bar"><strong>ieee2030-5</strong><span>Rust · MIT or Apache-2.0</span>
+</div>
+</footer>
+</body>
+</html>

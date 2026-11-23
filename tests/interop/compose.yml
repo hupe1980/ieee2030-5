@@ -1,0 +1,20 @@
+services:
+  peer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: peer
+    volumes:
+      - ../..:/repo:ro
+      - session:/session
+  rust:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: rust
+    network_mode: service:peer
+    volumes:
+      - ../..:/repo:ro
+      - session:/session
+volumes:
+  session:

@@ -1,0 +1,37 @@
+[package]
+name = "ieee2030-5-fuzz"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+ieee2030-5 = { path = "..", features = ["csip-aus","pki"] }
+
+[[bin]]
+name = "xml"
+path = "fuzz_targets/xml.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "device_certificate"
+path = "fuzz_targets/device_certificate.rs"
+test = false
+doc = false
+bench = false
+
+[features]
+site-dns = ["ieee2030-5/runtime"]
+
+[[bin]]
+name = "xmdns"
+path = "fuzz_targets/xmdns.rs"
+test = false
+doc = false
+bench = false
+required-features = ["site-dns"]

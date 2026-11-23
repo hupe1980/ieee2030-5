@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}{% set guides = get_section(path="guides/_index.md") %}
+<div class="wrap reader">
+<aside><a class="kicker" href="{{ guides.permalink }}">Documentation</a>
+<nav aria-label="Guides">{% for guide in guides.pages %}<a href="{{ guide.permalink }}"{% if guide.path == page.path %} aria-current="page"{% endif %}>{{ guide.title }}</a>{% endfor %}</nav>
+</aside>
+<article>
+<p class="kicker">Implementation guide</p>
+<h1>{{ page.title }}</h1>
+<p class="lede">{{ page.description }}</p>{% if page.toc | length > 1 %}<nav class="toc" aria-label="On this page"><strong>On this page</strong>{% for h in page.toc %}<a href="#{{ h.id }}">{{ h.title }}</a>{% endfor %}</nav>{% endif %}
+<div class="prose">{{ page.content | safe }}</div><a class="back" href="{{ guides.permalink }}">← All guides</a>
+</article>
+</div>{% endblock %}

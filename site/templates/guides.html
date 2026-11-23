@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}<div class="wrap hub">
+<p class="kicker">IEEE 2030.5 for Rust</p>
+<h1>Documentation</h1>
+<p class="lede">Start with a registration resource, then follow the guides for your device, network and profile.</p>
+<div class="cards">{% for guide in section.pages %}<a class="card" href="{{ guide.permalink }}">
+<h2>{{ guide.title }} <span>↗</span>
+</h2>
+<p>{{ guide.description }}</p></a>{% endfor %}</div>
+</div>{% endblock %}

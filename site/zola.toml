@@ -1,0 +1,12 @@
+base_url = "https://hupe1980.github.io/ieee2030-5"
+title = "ieee2030-5"
+description = "A Rust library for IEEE 2030.5-2018. Build schema-checked Smart Energy Profile XML, discover devices and evaluate distributed energy resource controls."
+[extra]
+repository = "https://github.com/hupe1980/ieee2030-5"
+
+[link_checker]
+# SunSpec serves these PDFs to browsers and rejects the automated link checker.
+skip_prefixes = [
+    "https://sunspec.org/wp-content/uploads/2025/01/CSIPImplementationGuidev2.103-15-2018.pdf",
+    "https://sunspec.org/wp-content/uploads/2025/01/SunSpecCSIPConformanceTestProceduresV1.3-2.pdf",
+]

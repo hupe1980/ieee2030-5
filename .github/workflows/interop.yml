@@ -1,0 +1,13 @@
+name: Independent DER interoperability
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  peer-exchange:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose -f tests/interop/compose.yml up --build --abort-on-container-exit --exit-code-from rust
+      - if: always()
+        run: docker compose -f tests/interop/compose.yml down --volumes

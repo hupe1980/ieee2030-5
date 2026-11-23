@@ -1,0 +1,74 @@
+# SunSpec CSIP Conformance Test Procedures, approved v1.3 (2023-10-24)
+# https://sunspec.org/wp-content/uploads/2025/01/SunSpecCSIPConformanceTestProceduresV1.3-2.pdf
+# Procedure ID, printed starting page, local description (tab-separated).
+COMM-001	22	DNS service discovery
+COMM-002	24	Preconfigured discovery
+COMM-003	25	Transport security
+COMM-004	26	Certificate and transport checks
+CORE-001	30	HTTP requests
+CORE-002	32	HTTP responses
+CORE-003	34	Polling
+CORE-004	36	List access
+CORE-005	40	Time resource
+CORE-009	41	End-device discovery
+CORE-010	43	Function set assignments
+CORE-011	46	Multiple assignments
+CORE-012	49	DER programs and controls
+CORE-013	51	Extended DER programs and controls
+CORE-014	53	Generating device settings
+CORE-018	56	Subscriptions
+CORE-019	58	Extended subscriptions
+CORE-021	61	Event randomization
+CORE-022	63	Event responses
+BASIC-001	69	Device identification
+BASIC-002	71	Group membership
+BASIC-003	74	Multiple groups
+BASIC-004	77	Voltage ride-through
+BASIC-005	80	Frequency ride-through
+BASIC-006	83	Voltage-reactive power curve
+BASIC-007	86	Ramp rate
+BASIC-008	88	Fixed power factor
+BASIC-009	91	Connect state
+BASIC-010	94	Active power ceiling
+BASIC-011	97	Voltage-active power curve
+BASIC-012	100	Frequency-active power response
+BASIC-013	103	Active power percentage
+BASIC-014	106	Active power in watts
+BASIC-015	109	Multiple control functions
+BASIC-016	112	Defaults only
+BASIC-017	113	Event without a default
+BASIC-018	114	Event with a default
+BASIC-019	116	Sequential events within one program
+BASIC-020	118	Sequential events across programs
+BASIC-021	120	Overlapping similar controls, system first
+BASIC-022	122	Overlapping similar controls, service point first
+BASIC-023	124	Overlapping similar controls, active system event
+BASIC-024	127	Overlapping independent controls, system first
+BASIC-025	130	Overlapping independent controls, service point first
+BASIC-026	133	Overlapping independent controls, active system event
+BASIC-027	136	Alarm reporting
+BASIC-028	138	Operating status
+BASIC-029	140	Metering
+UTIL-001	144	Startup group assignment
+UTIL-002	146	Aggregator commissioning
+UTIL-003	148	Retrieve group assignments
+UTIL-004	149	Retrieve assigned DER
+AGG-001	153	Aggregator subscription
+AGG-002	155	Defaults only
+AGG-003	156	Single event without a default
+AGG-004	157	Single event and default
+AGG-005	159	Sequential events within one program
+AGG-006	161	Sequential events across programs
+AGG-007	163	Similar controls, system first
+AGG-008	166	Similar controls, transformer first
+AGG-009	168	Similar controls, active system event
+AGG-010	171	Independent controls, system first
+AGG-011	173	Independent controls, transformer first
+AGG-012	175	Independent controls, active system event
+ERR-001	178	First error recovery scenario
+ERR-002	180	Second error recovery scenario
+MAINT-001	183	Out-of-band device maintenance
+MAINT-002	185	In-band device maintenance
+MAINT-003	187	Group updates
+MAINT-004	189	Control updates
+MAINT-005	191	Program updates

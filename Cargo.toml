@@ -1,0 +1,40 @@
+[package]
+name = "ieee2030-5"
+version = "0.1.1"
+edition = "2024"
+authors = ["hupe1980"]
+description = "IEEE 2030.5 (Smart Energy Profile 2.0) for Rust"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/hupe1980/ieee2030-5"
+documentation = "https://docs.rs/ieee2030-5"
+readme = "README.md"
+include = ["/src/**", "/tests/**", "/site/content/guides/*.md", "/README.md", "/CHANGELOG.md", "/LICENSE-*", "/Cargo.toml", "/Cargo.lock"]
+
+keywords = ["ieee2030-5", "sep2", "smart-grid", "der", "energy"]
+categories = ["network-programming"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+[dependencies]
+hickory-proto = { version = "0.26.3", default-features = false, features = ["std", "mdns"], optional = true }
+socket2 = { version = "0.6", features = ["all"], optional = true }
+x509-parser = { version = "0.18", optional = true }
+fluent-uri = { version = "0.4", default-features = false, features = ["alloc"] }
+roxmltree = { version = "0.21.2", default-features = false }
+sha2 = { version = "0.10", default-features = false }
+openssl = { version = "0.10", optional = true }
+mdns-sd = { version = "0.21", optional = true }
+
+hyper = { version = "1", features = ["http1", "client", "server"], optional = true }
+hyper-util = { version = "0.1", features = ["tokio"], optional = true }
+tokio = { version = "1", features = ["rt", "net", "macros", "time", "io-util", "sync"], optional = true }
+tokio-openssl = { version = "0.6", optional = true }
+bytes = { version = "1", optional = true }
+http-body-util = { version = "0.1", optional = true }
+
+[features]
+default = []
+pki = ["dep:x509-parser", "dep:openssl"]
+runtime = ["dep:hickory-proto", "dep:socket2", "pki", "dep:openssl", "dep:mdns-sd", "dep:hyper", "dep:hyper-util", "dep:tokio", "dep:tokio-openssl", "dep:bytes", "dep:http-body-util"]
+csip-aus = []
